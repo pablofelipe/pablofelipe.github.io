@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pablo Felipe — Principal Backend Engineer</title>
+  <meta name="description" content="Pablo Felipe — Principal/Staff Backend Engineer and Financial Systems Architect. 22+ years building compliance-critical, high-throughput fiscal and financial platforms across 25 countries." />
+  <meta property="og:title" content="Pablo Felipe — Principal Backend Engineer" />
+  <meta property="og:description" content="Financial Systems Architect · Enterprise Backend · .NET, Python & AI-integrated platforms." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -31,6 +35,7 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -52,7 +57,7 @@
       color: var(--accent);
       letter-spacing: 0.05em;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -64,13 +69,53 @@
 
     /* ── HERO ── */
     .hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 6rem 2rem 4rem;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -10% -10% 0 -10%;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.10) 1px, transparent 1px);
+      background-size: 48px 48px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 0%, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 0%, transparent 75%);
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: -1;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .hero-blob-1 {
+      width: 420px; height: 420px;
+      background: var(--accent);
+      top: -120px; right: -80px;
+    }
+    .hero-blob-2 {
+      width: 320px; height: 320px;
+      background: var(--accent2);
+      bottom: -100px; left: -60px;
+      opacity: 0.2;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
     }
     .hero-label {
       font-family: 'JetBrains Mono', monospace;
@@ -80,7 +125,7 @@
       letter-spacing: 0.1em;
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.5rem, 5.5vw, 4.25rem);
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -106,6 +151,7 @@
       margin-bottom: 2.5rem;
       line-height: 1.8;
     }
+    .hero-desc strong { color: var(--text); }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex;
@@ -124,13 +170,37 @@
       background: var(--accent);
       color: #fff;
     }
-    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
     .btn-outline {
       background: transparent;
       color: var(--text);
       border: 1px solid var(--border);
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    /* ── HERO PHOTO ── */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo-ring {
+      position: relative;
+      width: min(320px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.2), 0 0 0 1px rgba(59,130,246,0.15);
+    }
+    .hero-photo-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 26px;
+      display: block;
+      background: var(--surface);
+    }
 
     /* ── STATS ── */
     .stats-bar {
@@ -231,9 +301,9 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .stack-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .stack-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59,130,246,0.15); }
     .stack-card-icon {
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
@@ -262,6 +332,7 @@
       gap: 1.5rem;
     }
     .project-card {
+      position: relative;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -269,11 +340,18 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 16px 36px rgba(59,130,246,0.18); }
     .project-header { display: flex; align-items: center; justify-content: space-between; }
     .project-icon { font-size: 1.4rem; }
+    .project-flagship {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
     .project-link {
       color: var(--muted);
       text-decoration: none;
@@ -304,9 +382,30 @@
       font-family: 'JetBrains Mono', monospace;
     }
     .lang-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .lang-csharp { background: #68217a; }
+    .lang-python { background: #3572A5; }
     .lang-java   { background: #b07219; }
-    .lang-css    { background: #563d7c; }
+    .lang-csharp { background: #68217a; }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy { background: var(--surface); }
+    .philosophy-card {
+      position: relative;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .philosophy-lead {
+      font-size: 1.15rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .philosophy-card p { color: #94a3b8; line-height: 1.85; margin-bottom: 1rem; }
+    .philosophy-card p:last-child { margin-bottom: 0; }
+    .philosophy-card strong { color: var(--text); }
 
     /* ── EXPERIENCE ── */
     #experience { background: var(--surface); }
@@ -393,7 +492,7 @@
       font-weight: 500;
       transition: all 0.2s;
     }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
     .contact-link-icon { font-size: 1.2rem; }
 
     /* ── FOOTER ── */
@@ -415,11 +514,17 @@
     .fade-in.visible { opacity: 1; transform: none; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo-wrap { order: -1; margin-bottom: 1rem; }
+      .hero-photo-ring { width: 200px; }
+    }
     @media (max-width: 700px) {
       nav { padding: 1rem; }
-      .nav-links { gap: 1rem; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
       .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
       .hero h1 { font-size: 2.4rem; }
+      .philosophy-card { padding: 1.75rem; }
     }
   </style>
 </head>
@@ -429,27 +534,40 @@
 <nav>
   <span class="nav-logo">pf.dev</span>
   <ul class="nav-links">
-    <li><a href="#about">Sobre</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#projects">Projetos</a></li>
-    <li><a href="#experience">Experiência</a></li>
-    <li><a href="#contact">Contato</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-label">// principal backend engineer</p>
-  <h1>Pablo <span>Felipe</span></h1>
-  <p class="hero-subtitle">Financial Systems Architect · Enterprise Backend · .NET</p>
-  <p class="hero-desc">
-    22+ anos projetando plataformas financeiras de missão crítica em escala global.
-    Especialista em sistemas de transação de alta integridade, arquitetura modular
-    e integração cross-country em ambientes regulatórios.
-  </p>
-  <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">Ver projetos →</a>
-    <a href="#contact" class="btn btn-outline">Entre em contato</a>
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-grid">
+    <div>
+      <p class="hero-label">// principal backend engineer</p>
+      <h1>Pablo <span>Felipe</span></h1>
+      <p class="hero-subtitle">Financial Systems Architect · Enterprise Backend · .NET &amp; Python</p>
+      <p class="hero-desc">
+        22+ years designing mission-critical financial platforms at global scale.
+        Currently architecting fiscal middleware running in <strong>25 countries</strong>
+        with <strong>10+ active tax regimes</strong> in production — where a
+        classification error triggers a regulatory penalty, not a bug report.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View projects →</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap fade-in">
+      <div class="hero-photo-ring">
+        <img src="images/profile.jpg" alt="Portrait of Pablo Felipe" />
+      </div>
+    </div>
   </div>
 </div>
 
@@ -457,20 +575,20 @@
 <div class="stats-bar">
   <div class="inner">
     <div class="stat-item fade-in">
-      <span class="stat-value">22+</span>
-      <span class="stat-label">Anos de Experiência</span>
+      <span class="stat-value" data-target="22" data-suffix="+">0</span>
+      <span class="stat-label">Years of Experience</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value">22</span>
-      <span class="stat-label">Países Atendidos</span>
+      <span class="stat-value" data-target="25">0</span>
+      <span class="stat-label">Countries Served</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value">50%</span>
-      <span class="stat-label">Ganho de Performance</span>
+      <span class="stat-value" data-target="50" data-suffix="%">0</span>
+      <span class="stat-label">Performance Gain</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value">40%</span>
-      <span class="stat-label">Redução de Incidentes</span>
+      <span class="stat-value" data-target="40" data-suffix="%">0</span>
+      <span class="stat-label">Fewer Incidents</span>
     </div>
   </div>
 </div>
@@ -478,34 +596,36 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
-    <p class="section-label">// sobre</p>
-    <h2 class="section-title">Quem sou eu</h2>
+    <p class="section-label">// about</p>
+    <h2 class="section-title">Who I am</h2>
     <div class="about-grid">
       <div class="about-text fade-in">
         <p>
-          Sou um engenheiro backend sênior com foco em <strong>sistemas financeiros enterprise</strong>.
-          Minha especialidade está em projetar plataformas que precisam ser corretas antes de serem rápidas —
-          transações, compliance regulatório, integridade de dados em produção.
+          I'm a senior backend engineer focused on <strong>enterprise financial systems</strong>.
+          My specialty is designing platforms that need to be correct before they're fast —
+          transactions, regulatory compliance, and data integrity in production.
         </p>
         <p>
-          Trabalhei na evolução arquitetural de middleware fiscal crítico na Oracle,
-          servindo operações em <strong>22 países</strong> com exigências regulatórias distintas.
-          O resultado foi um salto de 50% em performance e uma queda de 40% em incidentes de produção.
+          I've led the architectural evolution of a fiscal middleware platform at Oracle,
+          serving operations in <strong>25 countries</strong> across LATAM, EMEA, and Asia,
+          with <strong>10+ active tax regimes</strong> in production. The result: a 50%
+          jump in transaction performance and a 40% drop in production incidents.
         </p>
         <p>
-          Sou <strong>fullstack capable</strong>, mas minha paixão está no backend: onde os dados não podem
-          estar errados, onde a falha tem consequência real, e onde a arquitetura importa de verdade.
+          I'm <strong>fullstack-capable</strong>, but my passion is the backend: where data
+          can't be wrong, where failure has real consequences, and where architecture
+          genuinely matters.
         </p>
       </div>
       <div class="fade-in">
         <div class="about-highlight">
-          <h3>Áreas de foco</h3>
-          <div class="highlight-item"><span class="dot"></span><span>Arquitetura de sistemas financeiros de alta integridade</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>Monólitos modulares e sistemas distribuídos</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>Processamento de transações e compliance regulatório</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>Integração cross-country de plataformas fiscais</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>Otimização de performance em ambientes críticos</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>Arquitetura enterprise com .NET e Java/Spring</span></div>
+          <h3>Areas of focus</h3>
+          <div class="highlight-item"><span class="dot"></span><span>High-integrity financial systems architecture</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Modular monoliths and distributed systems</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Transaction processing and regulatory compliance</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Cross-country fiscal platform integration</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Eval-first RAG pipelines for regulated domains</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Enterprise architecture with .NET, Java/Spring, and Go</span></div>
         </div>
       </div>
     </div>
@@ -515,51 +635,62 @@
 <!-- STACK -->
 <section id="stack">
   <div class="section-inner">
-    <p class="section-label">// tecnologias</p>
-    <h2 class="section-title">Stack técnico</h2>
+    <p class="section-label">// technology</p>
+    <h2 class="section-title">Technical stack</h2>
     <div class="stack-grid">
       <div class="stack-card fade-in">
         <div class="stack-card-icon">⚙️</div>
-        <h3>Backend & Arquitetura</h3>
+        <h3>Backend & Architecture</h3>
         <div class="tags">
           <span class="tag">C#</span>
           <span class="tag">.NET</span>
-          <span class="tag">ASP.NET Core</span>
+          <span class="tag">Python</span>
           <span class="tag">Java</span>
           <span class="tag">Spring Boot</span>
           <span class="tag">Go</span>
-          <span class="tag">Web API</span>
-          <span class="tag">Entity Framework</span>
+          <span class="tag">Node.js / TypeScript</span>
         </div>
       </div>
       <div class="stack-card fade-in">
         <div class="stack-card-icon">🔗</div>
-        <h3>Integração & APIs</h3>
+        <h3>Integration & APIs</h3>
         <div class="tags">
           <span class="tag">REST</span>
+          <span class="tag">GraphQL</span>
           <span class="tag">gRPC</span>
-          <span class="tag">OpenAPI</span>
           <span class="tag">Microservices</span>
-          <span class="tag">Message Queues</span>
+          <span class="tag">RabbitMQ</span>
+        </div>
+      </div>
+      <div class="stack-card fade-in">
+        <div class="stack-card-icon">🤖</div>
+        <h3>AI / ML</h3>
+        <div class="tags">
+          <span class="tag">RAG Pipelines</span>
+          <span class="tag">Eval-First Harnesses</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Gemini API</span>
         </div>
       </div>
       <div class="stack-card fade-in">
         <div class="stack-card-icon">🗄️</div>
-        <h3>Dados & Storage</h3>
+        <h3>Data & Messaging</h3>
         <div class="tags">
           <span class="tag">PostgreSQL</span>
           <span class="tag">SQL Server</span>
           <span class="tag">MongoDB</span>
-          <span class="tag">Redis</span>
+          <span class="tag">RabbitMQ</span>
         </div>
       </div>
       <div class="stack-card fade-in">
         <div class="stack-card-icon">🐳</div>
-        <h3>Infraestrutura & DevOps</h3>
+        <h3>Infrastructure & DevOps</h3>
         <div class="tags">
           <span class="tag">Docker</span>
-          <span class="tag">Linux</span>
-          <span class="tag">CI/CD</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">AWS (Lambda, RDS)</span>
         </div>
       </div>
     </div>
@@ -569,30 +700,35 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
-    <p class="section-label">// projetos</p>
-    <h2 class="section-title">Repositórios públicos</h2>
+    <p class="section-label">// projects</p>
+    <h2 class="section-title">Flagship repositories</h2>
     <div class="projects-grid">
       <div class="project-card fade-in">
         <div class="project-header">
-          <span class="project-icon">🏢</span>
-          <a href="https://github.com/pablofelipe/SmartCondoApi" target="_blank" class="project-link">
-            ver no GitHub ↗
+          <span class="project-icon">🧾</span>
+          <a href="https://github.com/pablofelipe/ncm-classifier-ai" target="_blank" class="project-link">
+            view on GitHub ↗
           </a>
         </div>
-        <h3>SmartCondoApi</h3>
+        <span class="project-flagship">eval-first RAG</span>
+        <h3>ncm-classifier-ai</h3>
         <p>
-          API de gerenciamento condominial com foco em administração de usuários
-          e controle de permissões hierárquicas. Arquitetura backend robusta em C#.
+          A RAG pipeline that classifies Brazilian products into 8-digit NCM fiscal
+          codes, grounded on the official TIPI table. Built eval-first: every
+          architectural change is gated by a labeled suite tracking accuracy,
+          calibration, latency, and cost — including the changes that didn't work.
+          A deterministic verification gate routes low-confidence output to escalation.
         </p>
         <div class="tags" style="margin-top: auto;">
-          <span class="tag">C#</span>
-          <span class="tag">.NET</span>
-          <span class="tag">REST API</span>
-          <span class="tag">Permissões</span>
+          <span class="tag">RAG</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Gemini</span>
+          <span class="tag">Hybrid Search</span>
         </div>
         <div class="project-lang">
-          <span class="lang-dot lang-csharp"></span>
-          C#
+          <span class="lang-dot lang-python"></span>
+          Python
         </div>
       </div>
 
@@ -600,48 +736,83 @@
         <div class="project-header">
           <span class="project-icon">🛒</span>
           <a href="https://github.com/pablofelipe/easydora" target="_blank" class="project-link">
-            ver no GitHub ↗
+            view on GitHub ↗
           </a>
         </div>
+        <span class="project-flagship">event-driven microservices</span>
         <h3>easydora</h3>
         <p>
-          Plataforma de e-commerce construída sobre arquitetura de microsserviços.
-          Demonstra design orientado a domínios e decomposição de serviços em Java/Spring.
+          A polyglot, event-driven e-commerce system — Go, Spring Boot, and FastAPI,
+          each used where it fits the workload. Every cross-service interaction flows
+          through RabbitMQ topic exchanges; the Outbox Pattern guarantees an event is
+          never silently lost; event contracts are validated against versioned JSON
+          Schemas so producer/consumer drift is caught automatically.
         </p>
         <div class="tags" style="margin-top: auto;">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">Microservices</span>
-          <span class="tag">E-commerce</span>
+          <span class="tag">Event-Driven</span>
+          <span class="tag">RabbitMQ</span>
+          <span class="tag">Outbox Pattern</span>
+          <span class="tag">Contract Testing</span>
         </div>
         <div class="project-lang">
           <span class="lang-dot lang-java"></span>
-          Java
+          Java · Go · Python
         </div>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-header">
-          <span class="project-icon">🖥️</span>
-          <a href="https://github.com/pablofelipe/smart_condo-cli" target="_blank" class="project-link">
-            ver no GitHub ↗
+          <span class="project-icon">🏢</span>
+          <a href="https://github.com/pablofelipe/SmartCondo" target="_blank" class="project-link">
+            view on GitHub ↗
           </a>
         </div>
-        <h3>smart_condo-cli</h3>
+        <span class="project-flagship">full-stack production stack</span>
+        <h3>SmartCondo</h3>
         <p>
-          Interface client-side para o sistema de administração condominial.
-          Frontend para consumir e interagir com a SmartCondoApi.
+          A full-stack condominium administration platform — ASP.NET Core 8 (REST +
+          GraphQL via HotChocolate) on the backend, React 19 + TypeScript PWA on the
+          frontend, PostgreSQL behind EF Core. JWT auth with a hierarchical permission
+          model, deployable as a container or as an AWS Lambda behind API Gateway.
         </p>
         <div class="tags" style="margin-top: auto;">
-          <span class="tag">CSS</span>
-          <span class="tag">Frontend</span>
-          <span class="tag">Admin UI</span>
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">GraphQL</span>
+          <span class="tag">React 19</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">AWS Lambda</span>
         </div>
         <div class="project-lang">
-          <span class="lang-dot lang-css"></span>
-          CSS
+          <span class="lang-dot lang-csharp"></span>
+          C#
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-inner">
+    <p class="section-label">// what I think about</p>
+    <h2 class="section-title">Fiscal regulation × AI</h2>
+    <div class="philosophy-card fade-in">
+      <p class="philosophy-lead">
+        Fiscal regulation and AI is a narrow intersection with very few engineers
+        who've operated in both.
+      </p>
+      <p>
+        LLMs fail at fiscal classification out of the box — they hallucinate
+        plausible-looking codes, can't express calibrated confidence, and leave no
+        audit trail. The interesting engineering problem is the layer between the
+        raw model and a regulated production environment: <strong>retrieval
+        grounding, verification, structured output, confidence scoring, and
+        human-in-the-loop design</strong>.
+      </p>
+      <p>
+        That's the problem <code>ncm-classifier-ai</code> is working on — treating AI
+        as an engineering discipline, not a demo.
+      </p>
     </div>
   </div>
 </section>
@@ -649,39 +820,43 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
-    <p class="section-label">// experiência</p>
-    <h2 class="section-title">Trajetória profissional</h2>
+    <p class="section-label">// experience</p>
+    <h2 class="section-title">Professional track record</h2>
     <div class="timeline">
       <div class="timeline-item fade-in">
-        <div class="timeline-role">Principal Backend Engineer / Financial Systems Architect</div>
+        <div class="timeline-role">Principal Application Software Engineer / Financial Systems Architect</div>
         <div class="timeline-company">Oracle</div>
-        <div class="timeline-period">Experiência notável</div>
+        <div class="timeline-period">Current</div>
         <p class="timeline-desc">
-          Liderou a evolução arquitetural de middleware fiscal crítico, responsável por
-          operações em 22 países com requisitos regulatórios distintos. O trabalho envolveu
-          redesign de pipelines de processamento, refatoração de sistemas legados e
-          integração de compliance multi-jurisdicional.
+          Technical lead and architect for a fiscal middleware platform serving 25
+          countries — Brazil (NF-e, NFC-e, SAT), Mexico, Argentina, and 20+ additional
+          jurisdictions across EMEA and Asia, with 10+ active tax regimes in
+          production. Built a Jenkins CI/CD pipeline from scratch, now used by the
+          entire LATAM fiscal engineering team, and drives technical influence across
+          distributed, multi-timezone teams without direct authority.
         </p>
         <div class="timeline-achievements">
-          <span class="achievement-badge">↑ 50% em performance de transações</span>
-          <span class="achievement-badge">↓ 40% em incidentes de produção</span>
-          <span class="achievement-badge">22 países atendidos</span>
+          <span class="achievement-badge">↑ 50% transaction performance</span>
+          <span class="achievement-badge">↓ 40% production incidents</span>
+          <span class="achievement-badge">25 countries served</span>
+          <span class="achievement-badge">10+ tax regimes</span>
         </div>
       </div>
 
       <div class="timeline-item fade-in">
-        <div class="timeline-role">Arquiteto de Sistemas Financeiros</div>
-        <div class="timeline-company">Projetos Enterprise</div>
-        <div class="timeline-period">22+ anos de atuação</div>
+        <div class="timeline-role">Financial Systems Architect</div>
+        <div class="timeline-company">Enterprise Projects</div>
+        <div class="timeline-period">22+ years of practice</div>
         <p class="timeline-desc">
-          Ao longo de mais de duas décadas, atuou no design e implementação de plataformas
-          financeiras enterprise para múltiplos países, com foco em sistemas de transação
-          de alta integridade, ambientes regulatórios complexos e arquitetura distribuída escalável.
+          Over more than two decades, designed and implemented enterprise financial
+          platforms for multiple countries, with a focus on high-integrity
+          transaction systems, complex regulatory environments, and scalable
+          distributed architecture.
         </p>
         <div class="timeline-achievements">
           <span class="achievement-badge">.NET / C#</span>
           <span class="achievement-badge">Java / Spring</span>
-          <span class="achievement-badge">Arquitetura Distribuída</span>
+          <span class="achievement-badge">Distributed Architecture</span>
         </div>
       </div>
     </div>
@@ -691,17 +866,19 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <p class="section-label">// contato</p>
-    <h2 class="section-title">Vamos conversar</h2>
+    <p class="section-label">// contact</p>
+    <h2 class="section-title">Let's talk</h2>
     <div class="contact-wrapper">
       <div class="contact-text fade-in">
         <p>
-          Estou disponível para oportunidades em arquitetura de sistemas financeiros,
-          backend sênior/principal, e consultoria em plataformas de alta integridade transacional.
+          This site is a walkthrough of how I approach engineering — eval-first AI,
+          event-driven systems, fiscal platforms at scale. If you've read through the
+          projects above and want to dig into a design decision, a trade-off, or the
+          reasoning behind any of it, I'm happy to talk it through.
         </p>
         <p>
-          Se você tem um sistema crítico que precisa de escala, performance ou uma
-          reformulação arquitetural séria, pode me acionar.
+          Reach out if you'd like to discuss the portfolio, compare notes on
+          architecture, or exchange ideas on fiscal systems and AI.
         </p>
       </div>
       <div class="contact-links fade-in">
@@ -724,16 +901,40 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Pablo Felipe · Construído com HTML puro · Hospedado no GitHub Pages</span>
+  <span>© 2026 Pablo Felipe · Built with plain HTML · Hosted on GitHub Pages</span>
 </footer>
 
 <script>
-  // Fade-in on scroll
+  // Fade-in on scroll + stat count-up
+  const countUp = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
   const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        const statValue = e.target.querySelector('.stat-value');
+        if (statValue && !statValue.dataset.animated) {
+          statValue.dataset.animated = 'true';
+          countUp(statValue);
+        }
+      }
+    }),
     { threshold: 0.1 }
   );
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.stat-item').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
