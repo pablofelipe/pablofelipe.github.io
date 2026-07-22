@@ -688,9 +688,11 @@
         <div class="tags">
           <span class="tag">Docker</span>
           <span class="tag">Kubernetes (kind)</span>
+          <span class="tag">Terraform</span>
           <span class="tag">GitHub Actions</span>
           <span class="tag">Jenkins</span>
-          <span class="tag">AWS (Lambda, RDS)</span>
+          <span class="tag">AWS (Lambda, RDS, ECS/Fargate)</span>
+          <span class="tag">Azure (Container Apps)</span>
         </div>
       </div>
     </div>
@@ -754,6 +756,7 @@
           <span class="tag">Outbox Pattern</span>
           <span class="tag">Contract Testing</span>
           <span class="tag">Kubernetes (kind)</span>
+          <span class="tag">Observability (Prometheus/Grafana)</span>
         </div>
         <div class="project-lang">
           <span class="lang-dot lang-java"></span>
@@ -768,20 +771,25 @@
             view on GitHub ↗
           </a>
         </div>
-        <span class="project-flagship">full-stack production stack</span>
+        <span class="project-flagship">container-first · multi-cloud</span>
         <h3>SmartCondo</h3>
         <p>
           A full-stack condominium administration platform — ASP.NET Core 8 (REST +
           GraphQL via HotChocolate) on the backend, React 19 + TypeScript PWA on the
-          frontend, PostgreSQL behind EF Core. JWT auth with a hierarchical permission
-          model, deployable as a container or as an AWS Lambda behind API Gateway.
+          frontend, PostgreSQL behind EF Core. The same Docker image deploys unmodified
+          to Azure Container Apps or AWS ECS/Fargate through two independent Terraform
+          modules — torn down and rebuilt from <code>terraform apply</code> alone to
+          prove it. Real-time notifications run over native WebSockets by default, with
+          zero AWS runtime dependency.
         </p>
         <div class="tags" style="margin-top: auto;">
           <span class="tag">ASP.NET Core</span>
           <span class="tag">GraphQL</span>
           <span class="tag">React 19</span>
           <span class="tag">TypeScript</span>
-          <span class="tag">AWS Lambda</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">Multi-Cloud</span>
         </div>
         <div class="project-lang">
           <span class="lang-dot lang-csharp"></span>
