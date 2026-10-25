@@ -6,11 +6,14 @@
   <title>Pablo Felipe · Principal / Staff Software Engineer &amp; Software Architect</title>
   <meta name="description" content="Pablo Felipe, Principal / Staff Software Engineer and Software Architect. 20+ years building backend platforms for financial and mission-critical systems, plus distributed and AI-integrated systems in open source." />
   <meta property="og:title" content="Pablo Felipe · Principal / Staff Software Engineer &amp; Software Architect" />
-  <meta property="og:description" content="Backend Platforms for Financial &amp; Mission-Critical Systems · Distributed Systems &amp; AI-Integrated Applications · C#/.NET · Java · Python" />
+  <meta property="og:description" content="Backend Platforms for Financial &amp; Mission-Critical Systems · Distributed Systems &amp; AI-Integrated Applications · C#/.NET · Java" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pablofelipe.github.io/" />
+  <link rel="canonical" href="https://pablofelipe.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add('js');</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -329,7 +332,7 @@
     /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
       gap: 1.5rem;
     }
     .project-card {
@@ -507,12 +510,12 @@
     }
 
     /* ── SCROLL FADE IN ── */
-    .fade-in {
+    .js .fade-in {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-in.visible { opacity: 1; transform: none; }
+    .js .fade-in.visible { opacity: 1; transform: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
@@ -559,7 +562,7 @@
         Currently architecting a multi-country compliance platform running in
         <strong>25 countries</strong> with <strong>10+ regulatory regimes</strong> in
         production, where an error in the tax calculation engine is a compliance failure,
-        not a bug report.
+        not a bug report. Based in Brazil (UTC-3).
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View projects →</a>
@@ -578,11 +581,11 @@
 <div class="stats-bar">
   <div class="inner">
     <div class="stat-item fade-in">
-      <span class="stat-value" data-target="20" data-suffix="+">0</span>
+      <span class="stat-value" data-target="20" data-suffix="+">20+</span>
       <span class="stat-label">Years of Experience</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value" data-target="25">0</span>
+      <span class="stat-value" data-target="25">25</span>
       <span class="stat-label">Countries Served</span>
     </div>
     <div class="stat-item fade-in">
@@ -590,11 +593,11 @@
       <span class="stat-label">Transactions / Day (est.)</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value" data-target="50" data-suffix="%">0</span>
+      <span class="stat-value" data-target="50" data-suffix="%">50%</span>
       <span class="stat-label">Performance Gain</span>
     </div>
     <div class="stat-item fade-in">
-      <span class="stat-value" data-target="40" data-suffix="%">0</span>
+      <span class="stat-value" data-target="40" data-suffix="%">40%</span>
       <span class="stat-label">Fewer Incidents</span>
     </div>
   </div>
@@ -679,7 +682,7 @@
           <span class="tag">WebSockets</span>
           <span class="tag">PWA / Push Notifications</span>
           <span class="tag">React 19 / TypeScript (Frontend)</span>
-          <span class="tag">Microservices</span>
+          <span class="tag">Event-Driven Microservices (EasyDora)</span>
         </div>
       </div>
       <div class="stack-card fade-in">
@@ -699,6 +702,7 @@
           <span class="tag">Gemini API</span>
           <span class="tag">Multimodal (Vision + Text)</span>
           <span class="tag">Provider-Agnostic LLM Layer</span>
+          <span class="tag">AI-Assisted Development (Claude Code, Codex, Cursor)</span>
         </div>
       </div>
       <div class="stack-card fade-in">
@@ -737,7 +741,6 @@
           <span class="tag">Distributed Tracing</span>
           <span class="tag">Prometheus / Grafana</span>
           <span class="tag">Outbox Pattern</span>
-          <span class="tag">Agentic Workflows (Claude Code)</span>
         </div>
       </div>
     </div>
@@ -841,7 +844,7 @@
           interaction flows through RabbitMQ topic exchanges; the Outbox Pattern
           guarantees an event is never silently lost; event contracts are validated
           against versioned JSON Schemas so producer/consumer drift is caught
-          automatically. The 40-ADR decision log records real bugs found by running the
+          automatically. The 42-ADR decision log records real bugs found by running the
           tests, not by inspection. Two decisions are backed by measurement: a benchmark
           settled RabbitMQ over Kafka (~1,199 vs. ~84 msg/s under the same
           publish-confirm pattern), and circuit-breaker worst-case exposure — measured
@@ -960,19 +963,17 @@
         <p class="timeline-desc">
           Architectural authority for a multi-country compliance platform spanning 25
           countries and 10+ regulatory regimes — reviewing critical design decisions and
-          staying hands-on in core backend components. Built the platform's original .NET
-          Framework core from scratch, in production 8+ years; the multi-country core
-          cut new-country rollout time from 6 to 3 months. Set design-review and
+          staying hands-on in core backend components. The multi-country core cut
+          new-country rollout time from 6 to 3 months. Set design-review and
           code-review standards for the LATAM team, with no hierarchical authority over
-          it, and mentored senior engineers; also work ad hoc with two EMEA teams on
+          it, and mentored engineers and interns on that team; also work ad hoc with two EMEA teams on
           cross-country architecture. Led a full redesign of an 8-year legacy fiscal
           interface into modular JavaScript, driven by Brazil's tax reform, with
-          production rollout in 3 months and native support for Windows, Linux, and
-          Android — including proving, on my own initiative, that country-specific .NET
+          production rollout in Brazil in 3 months and native support for Windows,
+          Linux, and Android — including proving, on my own initiative, that country-specific .NET
           logic can run on Android against the JavaScript core via an embedded V8 engine.
-          Delivered LGPD data-privacy controls in the .NET core, and built the LATAM
-          team's internal Jenkins release platform and 540+ automated unit tests
-          enforced in the release pipeline.
+          Delivered LGPD data-privacy controls in the .NET core and built 540+
+          automated unit tests enforced in the release pipeline.
         </p>
         <div class="timeline-achievements">
           <span class="achievement-badge">↑ 50% transaction performance</span>
@@ -990,7 +991,10 @@
           Led the architectural transformation of Brazil's fiscal system, from a legacy
           codebase into the foundation of today's multi-country platform, in a highly
           regulated environment. The current country implementations were derived from
-          this codebase and now support 25 countries.
+          this codebase and now support 25 countries. Built the platform's original
+          .NET Framework core from scratch, in production 8+ years, and the LATAM
+          team's internal Jenkins release platform (self-service releases,
+          automated daily builds).
         </p>
         <div class="timeline-achievements">
           <span class="achievement-badge">↓ 60% critical bugs</span>
@@ -1076,7 +1080,7 @@
           <div class="highlight-item"><span class="dot"></span><span>MBA in DevOps Engineering & Integration Architecture, FIAP, 2021</span></div>
           <div class="highlight-item"><span class="dot"></span><span>MBA in Project Management, FIAP, 2015</span></div>
           <div class="highlight-item"><span class="dot"></span><span>Specialization in Software Engineering, Universidade São Judas Tadeu, 2006</span></div>
-          <div class="highlight-item"><span class="dot"></span><span>BTech in Data Processing, Universidade São Judas Tadeu, 2004</span></div>
+          <div class="highlight-item"><span class="dot"></span><span>Technologist degree (3-year higher-education program) in Data Processing, Universidade São Judas Tadeu, 2004</span></div>
         </div>
       </div>
       <div class="fade-in">
